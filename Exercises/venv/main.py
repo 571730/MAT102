@@ -29,11 +29,11 @@ def ceaser(crypt, key):
 def findNumE(string):
     return string.count("e")
 
-def compareFreq():
+def compareFreq(compared):
     ref = frequency("test1")
-    romeo = frequency("test2")
+    freqCompared = frequency(compared)
 
-    print(chiSquare(ref, romeo))
+    return chiSquare(ref, freqCompared)
 
 def chiSquare(ref, compare):
     chiSum = 0
@@ -62,7 +62,22 @@ def frequency(filnavn):
 
     return tegn_deci
 
-def crachWithChi
-
-
-compareFreq()
+def crackWithChi(crypt):
+    lowestChi=""
+    lowestChiNum=100000
+    
+    for i in range(0, 26):
+        decrypt = ceaser(crypt, i)
+        numChi = compareFreq("test2")
+        if numChi < 1:
+            print(decrypt)
+        if numChi < lowestChiNum:
+            lowestChiNum = numChi
+            lowestChi=decrypt
+        
+    print("Lowest chiSquared found:", lowestChiNum)
+    print("Decrypt result: ", lowestChi)
+    
+    
+crackWithChi("nlscha migy gily xywlsjncha qcnb fihayl myhnyhwym qcff nbcm qile c xihn ehiq")
+#print(ceaser("trying some more decrypting with longer sentences will this work i dont know", -6))
