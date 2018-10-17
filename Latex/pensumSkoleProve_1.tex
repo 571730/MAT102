@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\author{Mikkel}
+\title{Notes for MAT102}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+\section{11. Functions of two variables}
+\hfill \break
+\[
+\text{Gradient: } 
+\Delta f(a,b) = (f_x(a,b),f_y(a,b))
+\]
+
+\[
+\text{Linear approximation: }
+f(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(x-b)
+\]
+
+\[
+\text{Hessian Matrix: }
+\begin{pmatrix}
+f_{xx} & f_{yx} \\
+f_{xy} & f_{yy}
+\end{pmatrix}
+\]
+\\
+\[
+\text{Second order approximation: }
+\]
+\[
+f(x,y)=f(a,b)+\Delta f(a,b) \begin{pmatrix}
+x-a \\
+y-b
+\end{pmatrix} + \frac{1}{2}\begin{pmatrix}x-a & y-b \end{pmatrix}\begin{pmatrix} f_{xx}(a,b) & f_{yx}(a,b) \\
+f_{xy}(a,b) & f_{yy}(a,b)\end{pmatrix} \begin{pmatrix}x-a\\ y-b \end{pmatrix}
+\]
+\\
+\\For classifying statinary points, you look at the Hessian matrix.
+
+\[
+\Delta = \begin{vmatrix}
+f_{xx}(a,b) & f_{yx}(a,b)\\
+f_{xy}(a,b) & f_{yy}(a,b)
+\end{vmatrix} = f_{xx}(a,b)f_{yy}-f_{yxx}(a,b)^2
+\]
+\\
+a) if $\Delta > 0$ and $f_{xx}(a,b) > 0$, $(a,b)$ is a local minimum.\\
+b) if $\Delta > 0$ and $f_{xx}(a,b) < 0$, $(a,b)$ is a local maximum.\\
+c) if $\Delta < 0$, $(a,b)$ is a saddle point\\
+d) if $\Delta = 0$, all possibilities are still open.
+
+\hfill \break
+\section{14. Sampling from discrete distributions}
+\hfill \break
+
+\[
+\text{Mean value: }
+\overline{X}\frac{1}{n}\sum_{i=1}^n X_i
+\]
+
+\[
+\text{Empirical variance: }
+S^2 = \frac{1}{n-1}\sum_{i=1}^{n} (X_i - \overline{X})^2
+\]
+
+
+The standard deviation is $S=\sqrt{S^2}$
+
+\[
+\text{The expectation E(X) of X is }
+E(X) = \sum_x x \cdot P(X=x) 
+\]
+\\
+The variation of a stochastic variable X is
+\[
+Var(X)= \sum_x (x-E(X))^2 \cdot P(X=x)
+\]
+
+The standard deviation of $X$ is $\sqrt{Var(X)}$\\
+
+\hfill \break
+
+Binomial coefficient:
+\[
+\begin{pmatrix}n \\k \end{pmatrix} = \frac{n!}{k!(n-k)!}
+\]
+On the calculator you will find this as $nCr$, where n is n and k is r.
+
+\hfill \break
+
+Let $X$\textasciitilde $bin(n,p)$. Then:
+\[
+\text{Binomial distribution: }
+P(X=x)=\begin{pmatrix}n \\ x \end{pmatrix} p^x(1-p)^{n-x}
+\]
+\\
+You can find the expectation of a binomial distrubution $E(X)$ using the formula: 
+\[
+E(X)=np
+\]
+\\
+You can find the variance of a binomial distrubution $Var(X)$ using the formula: 
+\[
+Var(X)=np(1-p)
+\]
+\\
+Let $X$\textasciitilde $hypergeom(N,M,n)$. Then:
+\[
+P(X=x)=\frac{
+	\begin{pmatrix}M \\ x \end{pmatrix} 
+	\begin{pmatrix} N-M \\ n-x \end{pmatrix}
+}{
+	\begin{pmatrix}N \\ n \end{pmatrix}
+}
+\]
+\\
+The veriance of a hypergeometrical distribution:
+\[
+n\frac{K}{N}\frac{(N-K)}{N}\frac{N-n}{N-1}
+\]
+\begin{itemize}
+	\item \emph{N} is the population size
+	\item \emph{K} is the number of success states in the population
+	\item \emph{n} is the number of draws
+	\item \emph{k} is the number of observed successes
+	\item $\begin{pmatrix}a \\ b \end{pmatrix}$ is a binomial coefficient, (nCr)
+\end{itemize}
+
+\hfill \break
+Poisson distribution:
+\[
+P(X=x)=\frac{{(\lambda t )^x}}{x!}e^{-\lambda t}
+\]
+
+Let $X$ \textasciitilde $Po(\lambda t)$
+\begin{enumerate}
+	\item X is probability distribution
+	\item $E(X)=\lambda t$
+	\item $Var(X)=\lambda t$
+\end{enumerate}
+\hfill \break
+\section{16. Probability}
+\hfill \break
+
+Let A and B be two sets of possible outcomes in the same
+experiment (or subsets of a given measure space). Then we define the conditional
+probability of A given B by the formula:
+
+\[
+P(A|B)=\frac{P(A\cap B)}{P(B)}
+\]
+This formula makes sense as long as $P(B)\neq 0$, and we require this to define the
+conditional probability.
+
+
+
+\end{document}
