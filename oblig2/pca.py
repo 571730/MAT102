@@ -12,7 +12,7 @@ import scipy.linalg as sl
 # Principal component analysis
 # X = np.array-type, meanCentered, a = antall komponenter
 # Kall: [scores, loadings, error] = pca(X)
-def pca(X, a = 3, tol = 0.0001):
+def pca(X, a, tol = 0.0001):
     X = np.array(X)
     E = X
     [n,m] = X.shape
